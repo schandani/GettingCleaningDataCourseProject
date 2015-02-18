@@ -26,7 +26,7 @@ This is the integer number indicating which Subject performed the test. Values r
 
 This is the factor variable with six levels and corresponding labels that show which activity was performed during each test.
 
-Variables 3 to 88 are the means and standard deviations for each measurement respective measurment as indicated by the variable name.
+Variables 3 to 88 are the means and standard deviations for each respective measurment as indicated by the variable name.
 
 Mean measurements are indicated with the word "mean" in the variable name and standard deviations are indicated with the word "std" in the name.
 
