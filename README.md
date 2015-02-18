@@ -1,7 +1,7 @@
 This document describes how the run_analysis.R script works.
 
-Installs the "plyr" package.
-Installs the "dplyr" package.
+1. Installs the "plyr" package.
+2. Installs the "dplyr" package.
 Loads the plyr library first.
 Loads the dplyr library second.
 Downloads the raw data for analysis from the file URL specified.
