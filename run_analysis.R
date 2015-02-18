@@ -1,12 +1,21 @@
-## Download the UCI HAR Dataset
-## Unzip the UCI HAR Dataset into the same folder as the run_analysis.R script.
-## Include instruction to put data in wd.
-## Install: plyr and dplyr, install plyr first
+## Install the "plyr" package.
+## Install the "dplyr" package.
+## Load the plyr library first.
+## Load the dplyr library second.
 
 install.packages("plyr")
 library(plyr)
+
 install.packages("dplyr")
 library(dplyr)
+
+## Download the raw data for analysis from the file URL specified.
+
+fileURL <- "http://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip"
+
+download.file(fileURL, destfile = "UCI HAR Dataset.zip", method = "internal")
+
+unzip("UCI HAR Dataset.zip", unzip = "internal")
 
 MeasurementLabels <- read.table("./UCI HAR Dataset/features.txt")
 ActivityLabels <- read.table("./UCI HAR Dataset/activity_labels.txt")
@@ -27,8 +36,6 @@ TrainDataSubjects <- read.table("./UCI HAR Dataset/train/subject_train.txt")
 TrainDataMeasurements <- read.table("./UCI HAR Dataset/train/X_train.txt")
 TrainDataActivity <- read.table("./UCI HAR Dataset/train/y_train.txt")
 
-## Create descriptive names that show if the data is Test Data or Training Data.
-
 TestLabel <- c(rep("Test Data", 2947))
 TrainingLabel <- c(rep("Training Data", 7352))
 
@@ -37,22 +44,14 @@ ColumnNames <- as.character(MeasurementLabelsIndexed)
 colnames(TestDataMeasurements) <- ColumnNames
 colnames(TrainDataMeasurements) <- ColumnNames
 
-## Create descriptive names for Activities.
-
 ActivityName <- as.factor(ActivityLabels$V2)
 ActivityNumber <- as.factor(1:6)
-
-## Create the factors labels for the Test Data
 
 factorTestDataActivity <- factor(TestDataActivity$V1)
 levels(factorTestDataActivity) <- ActivityName
 
-## Create the factor labels for the Training Data
-
 factorTrainDataActivity <- factor(TrainDataActivity$V1)
 levels(factorTrainDataActivity) <- ActivityName
-
-## Combine the data together
 
 AllTestData <- cbind("TestSession" = TestLabel, "Activity" = factorTestDataActivity, "Subject" = as.numeric(TestDataSubjects$V1), "Measurement" = TestDataMeasurements)
 AllTrainData <- cbind("TestSession" = TrainingLabel, "Activity" = factorTrainDataActivity, "Subject" = as.numeric(TrainDataSubjects$V1), "Measurement" = TrainDataMeasurements)
@@ -70,14 +69,13 @@ FinalTableDT <- tbl_df(FinalTable)
 
 ## Calculate the average of each variable categorized by Subject and Activity Group.
 
-SummTable <- FinalTableDT %>%
+SummaryTable <- FinalTableDT %>%
       group_by(Subject, Activity) %>%
       summarise_each(funs(mean), 4:89) %>%
       arrange(Subject, Activity)
 
-View(SummTable)
+View(SummaryTable)
 
-## Create the Final Summary Table as a file called "Final Summary Table.txt"
+## Write Final Summary Table as output
 
-write.table(SummTable, file = "Final Summary Table.txt", row.names = FALSE)
-
+write.table(SummaryTable, file = "Final Summary Table.txt", row.names = FALSE)
