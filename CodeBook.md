@@ -12,6 +12,12 @@ For a decription of the raw data set and experimental design please refer to:
 
 http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones
 
+Refer to the README.txt file included in the downloaded zip file for a explanation of the experiments.
+
+Refer to the features_info.txt included in the downloaded zip file for an explanation of the measurements taken.
+
+Refer to the features.txt file included in the downloaded zip file for an explanation of the full set of measurements taken.
+
 The variables described in this document were processed from the raw data from the above experiment obtained from the following link:
 
 https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip
@@ -26,7 +32,7 @@ This is the integer number indicating which Subject performed the test. Values r
 
 This is the factor variable with six levels and corresponding labels that show which activity was performed during each test.
 
-Variables 3 to 88 are the means and standard deviations for each respective measurment as indicated by the variable name.
+A subset of the full set of measurements was taken in Variables 3 to 88 that are the means and standard deviations for each respective measurment as indicated by the variable name.
 
 Mean measurements are indicated with the word "mean" in the variable name and standard deviations are indicated with the word "std" in the name.
 
