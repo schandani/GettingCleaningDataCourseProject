@@ -53,8 +53,10 @@ levels(factorTestDataActivity) <- ActivityName
 factorTrainDataActivity <- factor(TrainDataActivity$V1)
 levels(factorTrainDataActivity) <- ActivityName
 
-AllTestData <- cbind("TestSession" = TestLabel, "Activity" = factorTestDataActivity, "Subject" = as.numeric(TestDataSubjects$V1), "Measurement" = TestDataMeasurements)
-AllTrainData <- cbind("TestSession" = TrainingLabel, "Activity" = factorTrainDataActivity, "Subject" = as.numeric(TrainDataSubjects$V1), "Measurement" = TrainDataMeasurements)
+AllTestData <- cbind("TestSession" = TestLabel, "Activity" = factorTestDataActivity, 
+      "Subject" = as.numeric(TestDataSubjects$V1), "Measurement" = TestDataMeasurements)
+AllTrainData <- cbind("TestSession" = TrainingLabel, "Activity" = factorTrainDataActivity, 
+      "Subject" = as.numeric(TrainDataSubjects$V1), "Measurement" = TrainDataMeasurements)
 AllData <- rbind(AllTrainData, AllTestData)
 
 ## Convert Data table to dplyr format table
