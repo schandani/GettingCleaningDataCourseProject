@@ -84,7 +84,7 @@ The meanFreq and "angle mean" measurements were included in the data set but can
 [46] "Measurement.539 fBodyBodyGyroMag-meanFreq()"         
 [47] "Measurement.542 fBodyBodyGyroJerkMag-mean()"         
 [48] "Measurement.552 fBodyBodyGyroJerkMag-meanFreq()"     
-[49] "Measurement.555 angle(tBodyAccMean,gravity)"         
+[49] "Measurement.555 angle(tBodyAccMean,gravity)"    
 [50] "Measurement.556 angle(tBodyAccJerkMean),gravityMean)"
 [51] "Measurement.557 angle(tBodyGyroMean,gravityMean)"    
 [52] "Measurement.558 angle(tBodyGyroJerkMean,gravityMean)"
